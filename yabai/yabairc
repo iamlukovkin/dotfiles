@@ -32,11 +32,5 @@ yabai -m config \
   mouse_action2 resize \
   mouse_drop_action swap
 
-focus_window() {
-  SPACE_NAME=$(yabai -m query --spaces --space | jq ".index")
-  WINDOW_ID=$(yabai -m query --windows --space | jq ".[] | select (.app=${SPACE_NAME}).id")
-  yabai -m window --focus "${WINDOW_ID}"
-}
-
-yabai -m signal --add event=space_changed action="focus_window"
-yabai -m signal --add event=display_changed action="focus_window"
+yabai -m signal --add event=space_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"
+yabai -m signal --add event=display_changed action="yabai -m window --focus \$(yabai -m query --windows --space | jq .[0].id)"

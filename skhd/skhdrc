@@ -26,3 +26,6 @@ shift + alt - 4 : yabai -m window --space 4;
 shift + alt - 5 : yabai -m window --space 5;
 shift + alt - 6 : yabai -m window --space 6;
 
+# System shortcuts
+rcmd + shift - d : osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
+
