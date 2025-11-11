@@ -1,7 +1,16 @@
 local item = Bar.add("item", "cpu", {
 	position = "right",
+	padding_left = 4,
+	label = {
+		padding_left = 4,
+		padding_right = 4,
+	},
+	icon = {
+		padding_left = 0,
+		string = "􀧓",
+	},
+	padding_right = 4,
 	update_freq = 2,
-	icon = { string = "􀧓" },
 })
 
 item:subscribe("routine", function()
