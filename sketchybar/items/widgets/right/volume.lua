@@ -1,5 +1,14 @@
 local item = Bar.add("item", "volume", {
 	position = "right",
+	padding_left = 4,
+	padding_right = 4,
+	label = {
+		padding_left = 4,
+		padding_right = 4,
+	},
+	icon = {
+		padding_left = 0,
+	},
 })
 
 item:subscribe("volume_change", function(env)

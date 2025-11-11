@@ -22,9 +22,10 @@ end
 local spaces_count = get_spaces_count()
 for sid = 1, spaces_count, 1 do
 	local space = Bar.add("space", "space." .. sid, {
-		position = "left",
+		position = "center",
 		space = sid,
 		padding_right = 0,
+		padding_left = 0,
 		icon = {
 			string = sid,
 			padding_right = 0,
@@ -41,19 +42,17 @@ for sid = 1, spaces_count, 1 do
 	space:subscribe("space_change", handle_space_change)
 end
 
-local space_separator = Bar.add("item", "space_separator", {
-	position = "left",
-	icon = {
-		string = "􀆊",
-		color = Colors.accent_color,
-		padding_left = 4,
-	},
-	label = {
-		drawing = false,
-	},
+Bar.add("bracket", { "/space\\..*/" }, {
+	position = "center",
 	background = {
-		drawing = false,
+		color = Colors.transparent,
+		border_width = 1,
+		border_color = Colors.white,
 	},
+})
+
+local space_separator = Bar.add("item", "space_separator", {
+	drawing = false,
 })
 
 space_separator:subscribe("space_windows_change", function(env)

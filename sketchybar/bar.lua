@@ -1,13 +1,13 @@
 Bar.bar({
-	height = 32,
+	height = 36,
 	y_offset = 8,
 	margin = 12,
-	corner_radius = 12,
+	corner_radius = 16,
 	border_width = 2,
 	border_color = Colors.accent_color,
 	position = "top",
 	sticky = false,
-	padding_left = 12,
-	padding_right = 12,
+	padding_left = 2,
+	padding_right = 4,
 	color = Colors.bar_color,
 })

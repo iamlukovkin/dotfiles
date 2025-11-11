@@ -1,5 +1,14 @@
 local item = Bar.add("item", "battery", {
 	position = "right",
+	padding_left = 4,
+	label = {
+		padding_left = 4,
+		padding_right = 4,
+	},
+	icon = {
+		padding_left = 0,
+	},
+	padding_right = 4,
 	update_freq = 120,
 })
 
