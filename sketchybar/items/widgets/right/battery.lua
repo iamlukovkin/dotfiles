@@ -30,7 +30,7 @@ item:subscribe({ "system_woke", "power_source_change" }, function()
 	elseif percentage > 10 then
 		icon = "􀛩"
 	end
-	if is_charging == "" then
+	if not is_charging == "" then
 		icon = "􀢋"
 	end
 	item:set({ icon = { string = icon }, label = { string = percentage .. "%" } })
