@@ -1,43 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env lua
 
-source "$CONFIG_DIR/colors.sh"
+local config_dir = os.getenv("HOME") .. "/.config/sketchybar"
+package.path = config_dir .. "/?.lua;" .. config_dir .. "/?/init.lua;" .. package.path
+package.cpath = config_dir .. "/?.so;" .. package.cpath
+package.cpath = package.cpath .. ";/Users/" .. os.getenv("USER") .. "/.local/share/sketchybar_lua/?.so"
 
-PLUGIN_DIR="$CONFIG_DIR/plugins"
-ITEM_DIR="$CONFIG_DIR/items"
-
-sketchybar --bar height=32 \
-  blur_radius=28 \
-  y_offset=8 \
-  margin=12 \
-  corner_radius=12 \
-  border_width=2 \
-  border_color=$ACCENT_COLOR \
-  position=top \
-  sticky=off \
-  padding_left=12 \
-  padding_right=12 \
-  color=$BAR_COLOR
-
-sketchybar --default icon.font="SF Pro:Semibold:12.0" \
-  icon.color=$WHITE \
-  label.font="SF Pro:Semibold:12.0" \
-  label.color=$WHITE \
-  background.color=$TRANSPARENT \
-  background.corner_radius=8 \
-  background.height=20 \
-  padding_left=4 \
-  padding_right=4 \
-  label.padding_left=4 \
-  label.padding_right=12 \
-  icon.padding_left=12 \
-  icon.padding_right=4
-
-source $ITEM_DIR/spaces.sh
-source $ITEM_DIR/front_app.sh
-source $ITEM_DIR/media.sh
-source $ITEM_DIR/calendar.sh
-source $ITEM_DIR/volume.sh
-source $ITEM_DIR/battery.sh
-source $ITEM_DIR/cpu.sh
-
-sketchybar --update
+require("init")
